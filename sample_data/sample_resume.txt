@@ -1,0 +1,25 @@
+Jane Doe
+Software Engineer
+Email: jane.doe@example.com
+
+Summary:
+Motivated Software Engineer with 3 years of experience in building scalable backend solutions. Strong background in Python development and data engineering pipelines.
+
+Experience:
+Backend Engineer | TechCorp Inc. | 2021 - Present
+- Developed RESTful APIs using Django REST Framework for the company's main e-commerce platform.
+- Managed and optimised MySQL databases, improving query performance by 30%.
+- Wrote unit and integration tests using pytest, increasing code coverage to 85%.
+- Set up automated deployment pipelines using GitHub Actions.
+- Migrated legacy monolithic services to containerised microservices using Docker.
+
+Junior Developer | StartUp LLC | 2019 - 2021
+- Assisted in the development of an internal dashboard using Python and Flask.
+- Wrote data extraction scripts using BeautifulSoup and Pandas.
+- Handled version control using Git.
+
+Skills:
+- Languages: Python, JavaScript, SQL
+- Frameworks: Django, Flask
+- Databases: MySQL, SQLite
+- Tools: Git, Docker, GitHub Actions, pytest, Pandas

@@ -1,0 +1,28 @@
+Job Title: Senior Python Developer
+Location: Remote
+
+About the Role:
+We are looking for an experienced Senior Python Developer to join our backend team. You will be responsible for designing, developing, and maintaining high-performance, scalable web applications and APIs.
+
+Responsibilities:
+- Write reusable, testable, and efficient Python code.
+- Design and implement scalable backend services using FastAPI or Flask.
+- Integrate user-facing elements developed by front-end developers with server-side logic.
+- Implement security and data protection measures.
+- Design and manage database schemas (PostgreSQL).
+- Deploy applications using Docker and AWS (EC2, S3).
+- Mentor junior developers and participate in code reviews.
+
+Requirements:
+- 4+ years of professional experience as a Python Developer.
+- Strong knowledge of Python web frameworks, preferably FastAPI (or Flask/Django).
+- Experience with relational databases, specifically PostgreSQL, and ORMs (SQLAlchemy).
+- Familiarity with containerisation technologies (Docker).
+- Experience with cloud platforms (AWS preferred).
+- Understanding of fundamental design principles behind a scalable application.
+- Proficient understanding of code versioning tools (Git).
+
+Nice to Have:
+- Experience with asynchronous programming in Python.
+- Knowledge of CI/CD pipelines.
+- Experience with caching systems like Redis.

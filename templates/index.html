@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillProbe AI — Skill Assessment & Learning Plan Agent</title>
+    <meta name="description" content="AI-powered skill assessment agent that evaluates your proficiency, identifies gaps, and creates personalised learning plans.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <!-- ═══ Aurora Background ═══ -->
+    <div class="aurora-bg">
+        <div class="aurora-layer aurora-1"></div>
+        <div class="aurora-layer aurora-2"></div>
+        <div class="aurora-layer aurora-3"></div>
+    </div>
+
+    <!-- ═══ Navbar ═══ -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-brand">
+            <span class="nav-logo">⚡</span>
+            <span class="nav-title">SkillProbe<span class="accent">AI</span></span>
+        </div>
+        <div class="nav-steps" id="navSteps">
+            <div class="nav-step active" data-step="0">
+                <span class="step-num">1</span><span class="step-label">Upload</span>
+            </div>
+            <div class="nav-step" data-step="1">
+                <span class="step-num">2</span><span class="step-label">Skills</span>
+            </div>
+            <div class="nav-step" data-step="2">
+                <span class="step-num">3</span><span class="step-label">Assess</span>
+            </div>
+            <div class="nav-step" data-step="3">
+                <span class="step-num">4</span><span class="step-label">Results</span>
+            </div>
+            <div class="nav-step" data-step="4">
+                <span class="step-num">5</span><span class="step-label">Plan</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ═══ Section 0: Hero / Landing ═══ -->
+    <section class="section active" id="section-hero">
+        <div class="hero-container">
+            <div class="hero-badge">AI-Powered Assessment</div>
+            <h1 class="hero-title">
+                Know Your <span class="gradient-text">Real Skills</span>,<br>
+                Not Just Your Resume
+            </h1>
+            <p class="hero-subtitle">
+                Upload a Job Description and your resume. Our AI agent will conversationally assess 
+                your true proficiency, identify skill gaps, and create a personalised learning plan 
+                with curated resources and realistic timelines.
+            </p>
+            <div class="hero-features">
+                <div class="feature-card">
+                    <div class="feature-icon">📄</div>
+                    <div class="feature-title">Smart Parsing</div>
+                    <div class="feature-desc">AI extracts & matches skills from JD and resume</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <div class="feature-title">Conversational Assessment</div>
+                    <div class="feature-desc">Adaptive questions that adjust to your level</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <div class="feature-title">Gap Analysis</div>
+                    <div class="feature-desc">Visual skill gap dashboard with proficiency scores</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🗺️</div>
+                    <div class="feature-title">Learning Roadmap</div>
+                    <div class="feature-desc">Personalised plan with resources & time estimates</div>
+                </div>
+            </div>
+            <button class="btn-primary btn-glow" id="btnGetStarted" onclick="showSection('section-upload')">
+                Get Started <span class="btn-arrow">→</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- ═══ Section 1: Upload ═══ -->
+    <section class="section" id="section-upload">
+        <div class="section-container">
+            <h2 class="section-title">Upload Your Documents</h2>
+            <p class="section-desc">Provide a Job Description and your resume. We'll extract and match skills automatically.</p>
+
+            <div class="upload-grid">
+                <!-- JD Input -->
+                <div class="upload-card">
+                    <div class="upload-card-header">
+                        <span class="upload-icon">📋</span>
+                        <h3>Job Description</h3>
+                    </div>
+                    <textarea id="jdInput" class="textarea-glass" rows="12" 
+                        placeholder="Paste the job description here...&#10;&#10;Example:&#10;We are looking for a Senior Python Developer with experience in FastAPI, PostgreSQL, and cloud deployment. The ideal candidate should have 3+ years of experience..."></textarea>
+                </div>
+
+                <!-- Resume Input -->
+                <div class="upload-card">
+                    <div class="upload-card-header">
+                        <span class="upload-icon">📄</span>
+                        <h3>Your Resume</h3>
+                    </div>
+                    <div class="upload-toggle">
+                        <button class="toggle-btn active" id="btnUploadPdf" onclick="toggleResumeMode('pdf')">Upload PDF</button>
+                        <button class="toggle-btn" id="btnPasteText" onclick="toggleResumeMode('text')">Paste Text</button>
+                    </div>
+                    <div id="resumePdfMode" class="resume-mode active">
+                        <div class="dropzone" id="dropzone">
+                            <div class="dropzone-content">
+                                <span class="dropzone-icon">📁</span>
+                                <p class="dropzone-text">Drag & drop your resume PDF here</p>
+                                <p class="dropzone-subtext">or click to browse</p>
+                                <input type="file" id="resumeFile" accept=".pdf" hidden>
+                            </div>
+                            <div class="dropzone-selected" id="dropzoneSelected" style="display:none;">
+                                <span class="file-icon">✅</span>
+                                <span class="file-name" id="fileName"></span>
+                                <button class="btn-remove" onclick="removeFile()">✕</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="resumeTextMode" class="resume-mode" style="display:none;">
+                        <textarea id="resumeTextInput" class="textarea-glass" rows="10" 
+                            placeholder="Paste your resume text here..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="upload-actions">
+                <button class="btn-primary btn-glow" id="btnAnalyse" onclick="analyseDocuments()">
+                    <span class="btn-text">Analyse & Extract Skills</span>
+                    <span class="btn-loader" style="display:none;">
+                        <span class="spinner"></span> Analysing...
+                    </span>
+                </button>
+            </div>
+            <div class="error-message" id="uploadError" style="display:none;"></div>
+        </div>
+    </section>
+
+    <!-- ═══ Section 2: Skill Overview ═══ -->
+    <section class="section" id="section-skills">
+        <div class="section-container">
+            <h2 class="section-title">Skill Analysis</h2>
+            <p class="section-desc">Here's what we found in your documents. We'll now assess your proficiency on each required skill.</p>
+
+            <div class="skills-grid">
+                <!-- Required Skills -->
+                <div class="skills-panel">
+                    <h3 class="panel-title"><span class="panel-icon">🎯</span> Required Skills</h3>
+                    <div class="skills-list" id="requiredSkillsList"></div>
+                </div>
+
+                <!-- Your Skills -->
+                <div class="skills-panel">
+                    <h3 class="panel-title"><span class="panel-icon">💡</span> Your Skills</h3>
+                    <div class="skills-list" id="candidateSkillsList"></div>
+                </div>
+            </div>
+
+            <!-- Gap Overview -->
+            <div class="gap-overview" id="gapOverview">
+                <h3 class="panel-title"><span class="panel-icon">⚠️</span> Initial Gap Analysis</h3>
+                <div class="gap-list" id="gapList"></div>
+            </div>
+
+            <div class="section-actions">
+                <button class="btn-primary btn-glow" id="btnStartAssessment" onclick="startAssessment()">
+                    <span class="btn-text">Start Skill Assessment</span>
+                    <span class="btn-loader" style="display:none;">
+                        <span class="spinner"></span> Preparing...
+                    </span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ Section 3: Conversational Assessment ═══ -->
+    <section class="section" id="section-assess">
+        <div class="section-container assess-container">
+            <!-- Assessment Header -->
+            <div class="assess-header">
+                <div class="assess-progress">
+                    <div class="progress-text">
+                        <span>Skill <span id="currentSkillNum">1</span> of <span id="totalSkills">6</span></span>
+                        <span class="current-skill-name" id="currentSkillName">—</span>
+                    </div>
+                    <div class="progress-bar-track">
+                        <div class="progress-bar-fill" id="assessProgressBar" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Window -->
+            <div class="chat-window" id="chatWindow">
+                <div class="chat-messages" id="chatMessages">
+                    <!-- Messages inserted by JS -->
+                </div>
+            </div>
+
+            <!-- Chat Input -->
+            <div class="chat-input-area" id="chatInputArea">
+                <div class="chat-input-wrapper">
+                    <textarea id="chatInput" class="chat-input" rows="2" 
+                        placeholder="Type your answer..." 
+                        onkeydown="handleChatKeydown(event)"></textarea>
+                    <button class="btn-send" id="btnSend" onclick="submitAnswer()">
+                        <span class="send-icon">➤</span>
+                    </button>
+                </div>
+                <p class="chat-hint">Press Enter to send, Shift+Enter for new line</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ Section 4: Results Dashboard ═══ -->
+    <section class="section" id="section-results">
+        <div class="section-container">
+            <h2 class="section-title">Assessment Results</h2>
+            <p class="section-desc">Here's how you performed across all assessed skills.</p>
+
+            <!-- Overall Score -->
+            <div class="overall-score-card" id="overallScoreCard">
+                <div class="score-ring-container">
+                    <svg class="score-ring" viewBox="0 0 120 120">
+                        <circle class="score-ring-bg" cx="60" cy="60" r="54"></circle>
+                        <circle class="score-ring-fill" cx="60" cy="60" r="54" id="scoreRingFill"></circle>
+                    </svg>
+                    <div class="score-value" id="overallScoreValue">0%</div>
+                </div>
+                <div class="score-info">
+                    <h3>Overall Readiness</h3>
+                    <p id="overallScoreLabel">Calculating...</p>
+                </div>
+            </div>
+
+            <!-- Skill Scores -->
+            <div class="results-grid" id="resultsGrid">
+                <!-- Populated by JS -->
+            </div>
+
+            <div class="section-actions">
+                <button class="btn-primary btn-glow" id="btnGeneratePlan" onclick="generatePlan()">
+                    <span class="btn-text">Generate Learning Plan</span>
+                    <span class="btn-loader" style="display:none;">
+                        <span class="spinner"></span> Generating...
+                    </span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ Section 5: Learning Plan ═══ -->
+    <section class="section" id="section-plan">
+        <div class="section-container">
+            <h2 class="section-title">Your Personalised Learning Plan</h2>
+            <p class="section-desc" id="planSummary"></p>
+
+            <!-- Strengths & Gaps -->
+            <div class="plan-overview-grid">
+                <div class="plan-overview-card strengths-card">
+                    <h3><span class="card-icon">💪</span> Your Strengths</h3>
+                    <ul id="planStrengths"></ul>
+                </div>
+                <div class="plan-overview-card gaps-card">
+                    <h3><span class="card-icon">🔥</span> Critical Gaps</h3>
+                    <ul id="planGaps"></ul>
+                </div>
+            </div>
+
+            <!-- Learning Items Timeline -->
+            <div class="learning-timeline" id="learningTimeline">
+                <!-- Populated by JS -->
+            </div>
+
+            <!-- Actions -->
+            <div class="section-actions">
+                <button class="btn-secondary" onclick="exportPlan()">📥 Download PDF Plan</button>
+                <button class="btn-primary btn-glow" onclick="resetAssessment()">Start New Assessment</button>
+            </div>
+        </div>
+    </section>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
