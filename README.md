@@ -283,34 +283,51 @@ AI:  Score: 4/5 (Advanced)
 
 ### Sample Output — Learning Plan (PDF excerpt)
 ```
-Overall Readiness Score: 62%
+SkillProbe AI - Personalised Learning Plan
+
+Overall Readiness Score: 40%
 
 Strengths:
-- Python fundamentals
-- REST API concepts (Flask)
+- Basic Python syntax
 
 Critical Gaps:
-- SQL Databases
-- Docker
+- Python
+- Programming Fundamentals
+- Problem Solving
 
 Learning Timeline:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SQL Databases (HIGH Priority)
-  Progression: Novice → Intermediate | Est: 3 weeks
-  Why: Critical for any backend role — data persistence is fundamental.
-  Prerequisites you have: Django ORM knowledge
+Python (HIGH Priority)
+  Progression: Beginner → Intermediate | Est: 8 weeks
+  Why: Basic Python experience is required for the developer role
+  Prerequisites you have: Basic Python syntax
   Resources:
-    - SQLBolt Interactive Tutorial (tutorial, 5h)
-    - PostgreSQL Official Docs (documentation, 8h)
-    - freeCodeCamp SQL Course (video, 4h)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Docker (MEDIUM Priority)
-  Progression: Novice → Beginner | Est: 2 weeks
-  Why: Required for deployment and consistent dev environments.
-  Prerequisites you have: Basic Linux commands
+    - Python for Everybody (course, 40h) : coursera.org
+    - Python Tutorial (documentation, 20h) : docs.python.org
+    - Automate the Boring Stuff with Python (book, 50h) : automatetheboringstuff.com
+    - Python Practice Problems (tutorial, 30h) : hackerrank.com
+
+Programming Fundamentals (HIGH Priority)
+  Progression: Intermediate → Advanced | Est: 12 weeks
+  Why: Strong programming fundamentals are crucial for any developer role
+  Prerequisites you have: Basic Python syntax, Basic programming concepts
   Resources:
-    - Docker Getting Started Guide (documentation, 3h)
-    - TechWorld with Nana Docker Course (video, 6h)
+    - Intro to CS in Python (course, 60h) : harvardx.org
+    - Software Design Patterns (course, 40h) : coursera.org
+    - Clean Code (book, 50h) : amazon.com
+
+Problem Solving (MEDIUM Priority)
+  Progression: Beginner → Intermediate | Est: 10 weeks
+  Resources:
+    - LeetCode (tutorial, 50h) : leetcode.com
+    - HackerRank (tutorial, 50h) : hackerrank.com
+    - Cracking the Coding Interview (book, 50h) : amazon.com
+
+Data Structures (LOW Priority)
+  Progression: Novice → Beginner | Est: 6 weeks
+  Resources:
+    - Data Structures & Algorithms in Python (course, 40h) : coursera.org
+    - GeeksForGeeks Tutorial (tutorial, 20h) : geeksforgeeks.org
 ```
 
 ---
