@@ -4,7 +4,6 @@
 
 🔗 **Live Demo:** [https://skillprobe-ai.onrender.com](https://skillprobe-ai.onrender.com)
 
-
 > ⏳ **Note:** The app is hosted on Render's free tier. If the site hasn't been visited recently, it may take **30–60 seconds to wake up** on the first load. Please be patient — once it's up, it runs smoothly!
 
 ---
@@ -220,6 +219,111 @@ Open your browser and navigate to: **http://localhost:8000**
 
 ## 🎬 Demo Video
 *(Add your demo video link here)*
+
+---
+
+## 📋 Sample Inputs and Outputs
+
+### Sample Input — Job Description
+```
+We are looking for a Backend Developer with strong experience in Python,
+REST API development, and SQL databases. Familiarity with Docker and
+CI/CD pipelines is a plus.
+```
+
+### Sample Input — Resume
+```
+Praveen B
+Software Engineering Student
+
+Experience:
+- 1 year building backend apps using Python and Django.
+- Created REST APIs for a college project using Flask.
+- Familiar with Git and basic Linux commands.
+```
+
+### Sample Output — Skill Extraction
+```json
+{
+  "required_skills": [
+    { "name": "Python", "importance": "critical", "category": "backend" },
+    { "name": "REST APIs", "importance": "critical", "category": "backend" },
+    { "name": "SQL Databases", "importance": "critical", "category": "database" },
+    { "name": "Docker", "importance": "nice-to-have", "category": "devops" },
+    { "name": "CI/CD", "importance": "nice-to-have", "category": "devops" }
+  ],
+  "candidate_skills": [
+    { "name": "Python", "claimed_experience": "1 year", "context": "Backend apps with Django" },
+    { "name": "REST APIs", "claimed_experience": "College project", "context": "Flask APIs" },
+    { "name": "Git", "claimed_experience": "Familiar", "context": "Version control" }
+  ],
+  "initial_gaps": [
+    { "skill": "SQL Databases", "status": "missing", "adjacent_to": ["Django ORM"] },
+    { "skill": "Docker", "status": "missing", "adjacent_to": ["Linux"] },
+    { "skill": "CI/CD", "status": "missing", "adjacent_to": ["Git"] }
+  ]
+}
+```
+
+### Sample Output — Assessment Chat
+```
+AI:  You mentioned using Django for backend development. Can you explain
+     how Django handles HTTP request routing, and how you would set up a
+     URL pattern that captures a dynamic parameter like a user ID?
+
+User: Django uses urls.py where you define path patterns. You can use
+      path('users/<int:id>/', views.user_detail) to capture a user ID
+      and pass it to the view function.
+
+AI:  Score: 4/5 (Advanced)
+     Great answer! You correctly identified urls.py and the path()
+     function with typed parameters. You could have also mentioned
+     URL namespacing for larger projects.
+```
+
+### Sample Output — Learning Plan (PDF excerpt)
+```
+Overall Readiness Score: 62%
+
+Strengths:
+- Python fundamentals
+- REST API concepts (Flask)
+
+Critical Gaps:
+- SQL Databases
+- Docker
+
+Learning Timeline:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SQL Databases (HIGH Priority)
+  Progression: Novice → Intermediate | Est: 3 weeks
+  Why: Critical for any backend role — data persistence is fundamental.
+  Prerequisites you have: Django ORM knowledge
+  Resources:
+    - SQLBolt Interactive Tutorial (tutorial, 5h)
+    - PostgreSQL Official Docs (documentation, 8h)
+    - freeCodeCamp SQL Course (video, 4h)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Docker (MEDIUM Priority)
+  Progression: Novice → Beginner | Est: 2 weeks
+  Why: Required for deployment and consistent dev environments.
+  Prerequisites you have: Basic Linux commands
+  Resources:
+    - Docker Getting Started Guide (documentation, 3h)
+    - TechWorld with Nana Docker Course (video, 6h)
+```
+
+---
+
+## ✅ Submission Checklist
+
+| Requirement | Status |
+|---|---|
+| Working prototype — deployed URL | ✅ [skillprobe-ai.onrender.com](https://skillprobe-ai.onrender.com) |
+| Source code in a public repo with README | ✅ This repo |
+| 3–5 minute demo video | 🎬 *(Add link above)* |
+| Architecture diagram & scoring logic | ✅ Mermaid flowchart + scoring rubric above |
+| Sample inputs and outputs | ✅ See section above |
 
 ---
 
