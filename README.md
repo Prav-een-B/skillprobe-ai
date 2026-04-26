@@ -218,7 +218,7 @@ Open your browser and navigate to: **http://localhost:8000**
 ---
 
 ## 🎬 Demo Video
-*(Add your demo video link here)*
+https://youtu.be/qJ6DaWDxgIU?si=e-gItVcNwChNpa-H
 
 ---
 
