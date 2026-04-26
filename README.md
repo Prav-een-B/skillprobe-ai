@@ -4,6 +4,9 @@
 
 🔗 **Live Demo:** [https://skillprobe-ai.onrender.com](https://skillprobe-ai.onrender.com)
 
+
+> ⏳ **Note:** The app is hosted on Render's free tier. If the site hasn't been visited recently, it may take **30–60 seconds to wake up** on the first load. Please be patient — once it's up, it runs smoothly!
+
 ---
 
 ## 📌 Problem Statement
